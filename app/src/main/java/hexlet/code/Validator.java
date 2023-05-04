@@ -1,7 +1,9 @@
 package hexlet.code;
 
-public class App {
-    public static void main(String[] args) {
+import hexlet.code.schemas.StringSchema;
 
+public final class Validator {
+    public StringSchema string() {
+        return new StringSchema();
     }
 }
