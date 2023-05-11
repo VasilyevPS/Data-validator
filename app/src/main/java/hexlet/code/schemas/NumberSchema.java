@@ -4,19 +4,23 @@ package hexlet.code.schemas;
 public final class NumberSchema extends BaseSchema {
 
     @Override
-    void typeCheck() {
+    NumberSchema typeCheck() {
         addValidityCheck("typeCheck", (content -> content instanceof Integer || content == null));
+        return  this;
     }
 
-    public void required() {
+    public NumberSchema required() {
         addValidityCheck("required", (content -> content != null));
+        return  this;
     }
 
-    public void positive() {
+    public NumberSchema positive() {
         addValidityCheck("positive", (content -> content == null || (int) content > 0));
+        return  this;
     }
 
-    public void range(int lowLimit, int highLimit) {
+    public NumberSchema range(int lowLimit, int highLimit) {
         addValidityCheck("range", (content -> lowLimit <= (int) content && (int) content <= highLimit));
+        return  this;
     }
 }

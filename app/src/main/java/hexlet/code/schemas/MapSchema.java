@@ -5,15 +5,23 @@ import java.util.Map;
 public class MapSchema extends BaseSchema {
 
     @Override
-    void typeCheck() {
+    MapSchema typeCheck() {
         addValidityCheck("typeCheck", (content -> content instanceof Map || content == null));
+        return this;
     }
 
-    public void required() {
+    public MapSchema required() {
         addValidityCheck("required", (content -> content != null));
+        return this;
     }
 
-    public void sizeof(int size) {
+    public MapSchema sizeof(int size) {
         addValidityCheck("sizeof", (content -> ((Map<?, ?>) content).size()  == size));
+        return this;
+    }
+
+    public MapSchema shape(Map<String, BaseSchema> schemas) {
+
+        return this;
     }
 }

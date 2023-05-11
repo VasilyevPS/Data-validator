@@ -12,7 +12,7 @@ public abstract class BaseSchema {
         this.typeCheck();
     }
 
-    abstract void typeCheck();
+    abstract BaseSchema typeCheck();
 
     public void addValidityCheck(String checkName, Predicate<Object> method) {
         validityChecks.put(checkName, method);
