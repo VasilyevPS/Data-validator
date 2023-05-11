@@ -14,11 +14,11 @@ public abstract class BaseSchema {
 
     abstract BaseSchema typeCheck();
 
-    public void addValidityCheck(String checkName, Predicate<Object> method) {
+    public final void addValidityCheck(String checkName, Predicate<Object> method) {
         validityChecks.put(checkName, method);
     }
 
-    public boolean isValid(Object content) {
+    public final boolean isValid(Object content) {
         for (String check: validityChecks.keySet()) {
             if  (!validityChecks.get(check).test(content)) {
                 return false;
