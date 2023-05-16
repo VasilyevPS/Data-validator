@@ -25,11 +25,8 @@ public abstract class BaseSchema {
     }
 
     public final boolean isValid(Object object) {
-        for (String check: validityChecks.keySet()) {
-            if  (!validityChecks.get(check).test(object)) {
-                return false;
-            }
-        }
-        return true;
+        return validityChecks.values()
+                .stream()
+                .allMatch(check -> check.test(object));
     }
 }
