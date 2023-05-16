@@ -15,6 +15,9 @@ public abstract class BaseSchema {
 
     abstract BaseSchema typeCheck();
 
+    /**
+     * @return Schema object with added check for not null
+     */
     public BaseSchema required() {
         addValidityCheck("required", (Objects::nonNull));
         return  this;
